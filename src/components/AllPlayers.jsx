@@ -1,5 +1,6 @@
 import fetchAllPuppies from "../API";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 export default function AllPlayers() {
   //     //import fetchall puppies; run it; run a useState here to create the array of puppies
   const [puppyData, setPuppyData] = useState([]);
@@ -12,7 +13,7 @@ export default function AllPlayers() {
   useEffect(() => {
     makePuppiesUseful();
   }, []);
-
+  const navigate = useNavigate();
   //   console.log(puppyData);
   return puppyData.map((puppy) => {
     return (
@@ -22,6 +23,7 @@ export default function AllPlayers() {
         <h4>{puppy.breed}</h4>
 
         <img src={puppy.imageUrl} alt={puppy.name} />
+        <button onClick={() => navigate("/players/:id")}>See Details</button>
       </div>
     );
   });

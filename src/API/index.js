@@ -11,3 +11,14 @@ export default async function fetchAllPuppies() {
     console.error(error);
   }
 }
+
+const fetchSinglePuppy = async (playerId) => {
+  try {
+    const response = await fetch(`${APIURL}/players/${playerId}`);
+    const result = await response.json();
+    if (result.error) throw result.error;
+    return result.data.player;
+  } catch (err) {
+    console.error(`Oh no, trouble fetching player #${playerId}!`, err);
+  }
+};
