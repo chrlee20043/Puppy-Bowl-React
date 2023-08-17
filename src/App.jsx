@@ -1,19 +1,29 @@
-import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import AllPlayers from "./components/AllPlayers";
 import NavBar from "./components/NavBar";
-import MainRoutes from "./components/Routes";
-// import NewPlayerForm from "./components/NewPlayerForm";
+import NewPlayerForm from "./components/NewPlayerForm";
+import SinglePlayer from "./components/SinglePlayer";
+import SearchBar from "./components/SearchBar";
+import "./App.css";
 
-function App() {
+export default function App() {
   return (
-    <>
-      <div className="container">
+    <section>
+      <div id="container">
         <NavBar />
+
+        {/* <AllPlayers /> */}
+        {/* <NewPlayerForm /> */}
+        {/* <SinglePlayer /> */}
+        <SearchBar />
       </div>
-      <div className="main-section">
-        <MainRoutes />
+      <div id="route-div">
+        <Routes>
+          <Route path="/" element={<AllPlayers />} />
+          <Route path="/players/:id" element={<SinglePlayer />} />
+          <Route path="/newplayerform" element={<NewPlayerForm />} />
+        </Routes>
       </div>
-    </>
+    </section>
   );
 }
-
-export default App;

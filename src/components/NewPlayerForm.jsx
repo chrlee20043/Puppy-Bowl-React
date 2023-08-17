@@ -1,7 +1,3 @@
 export default function NewPlayerForm() {
-  return (
-    <div>
-      <h1>New Player Form</h1>
-    </div>
-  );
+  return <p>I am a form! </p>;
 }
