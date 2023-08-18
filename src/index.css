@@ -8,9 +8,27 @@
   display: flex;
 }
 
-.nav-bar {
+#navbar {
   padding: 2em;
   display: flex;
   justify-content: space-evenly;
   font-size: 16px;
+}
+
+img {
+  height: 250px;
+  width: 300px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color:aquamarine;
+}
+
+input {
+  width: 50%;
+  margin: 10px;
 }
