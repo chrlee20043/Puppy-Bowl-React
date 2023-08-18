@@ -3,12 +3,14 @@ import AllPlayers from "./components/AllPlayers.jsx";
 import fetchAllPuppies from "./API";
 import SinglePlayer from "./components/SinglePlayer";
 import CreatePlayerForm from "./components/NewPlayerForm";
+import SearchBar from "./components/SearchBar";
 import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
 import NavBar from "./components/NavBar";
 
 function App() {
   const [players, setPlayers] = useState([]);
+  const [results, setResults] = useState([]);
 
   async function makePlayersUseful() {
     let puppyArray = await fetchAllPuppies();
@@ -21,8 +23,7 @@ function App() {
   return (
     <>
       <div id="Searchbar">
-        <label>Search</label>
-        <input type="text"></input>
+        <SearchBar />
       </div>
       <div>
         <NavBar />
