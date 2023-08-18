@@ -6,9 +6,10 @@ import CreatePlayerForm from "./components/NewPlayerForm";
 import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
 import NavBar from "./components/NavBar";
-import Searchbar from "./components/Searchbar";
+
 function App() {
   const [players, setPlayers] = useState([]);
+
   async function makePlayersUseful() {
     let puppyArray = await fetchAllPuppies();
     setPlayers(puppyArray);
@@ -16,13 +17,15 @@ function App() {
   useEffect(() => {
     makePlayersUseful();
   }, []);
+
   return (
     <>
       <div id="Searchbar">
-        <Searchbar />
+        <label>Search</label>
+        <input type="text"></input>
       </div>
       <div>
-        <NavBar id="navBar" />
+        <NavBar />
       </div>
       <div id="routeDiv">
         <Routes>
